@@ -1,0 +1,302 @@
+:root {
+    --purpura: #8b85e7;
+    --azul-marinho: #00d4ff;
+
+    --cinza-400: #f2f2f2;
+    --cinza-600: #615f5f;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    padding: 0;
+    margin: 0;
+    color: #4e4e4e;
+    font-family: 'Montserrat', sans-serif;
+    overflow-x: hidden;
+}
+
+body {
+    background: linear-gradient(138deg, rgb(235, 190, 9) 0%, rgb(242, 255, 128) 100%);
+    height: 100vh;
+    width: 100vw;
+    /* display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; */
+}
+
+@keyframes opacityReveal {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.navbar {
+    animation: expand 0.8s linear;
+    height: 80px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0;
+    background-color: #531e1e;
+    ;
+    box-shadow: 2px 0 6px rgba(0, 0, 0, 0.2);
+    transition: all 1s;
+    overflow: hidden;
+    color: #fff;
+}
+
+.navbar h1 {
+    white-space: nowrap;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+    font-size: 20px;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar {
+    height: calc(100vh - 80px);
+    background: #562d2d;
+    margin-top: 80px;
+    width: 60px;
+    box-shadow: inset 0 3px 6px rgba(255, 255, 255, 0.3);
+    overflow: hidden;
+    transition: all 0.4s;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    top: 0;
+    left: 0;
+}
+
+.sidebar .toggler {
+    position: fixed;
+    top: 100px;
+    left: 9px;
+    border: 1px solid var(--cinza-600);
+    background: transparent;
+    border-radius: 20px;
+    opacity: 0.6;
+    cursor: pointer;
+    padding: 5px 10px;
+    background: rgba(0, 0, 0, 0.05);
+    transition: all 0.3s;
+}
+
+.sidebar .toggler:hover {
+    opacity: 1;
+}
+
+.sidebar .toggler svg {
+    fill: var(--cinza-600);
+    height: 20px;
+    width: 20px;
+    padding: 0;
+    transform: rotate(0deg);
+    transition: all 0.3s;
+}
+
+.sidebar.shown .toggler {
+    border: 2px solid #fff;
+    opacity: 1;
+    background: transparent;
+    left: 69px;
+}
+
+@media (max-width: 576px) {
+    .sidebar.shown {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-content: flex-start;
+        justify-content: space-evenly;
+        padding: 20px 30px;
+    }
+
+    .sidebar.shown .toggler {
+        left: calc(100% - 66px);
+        top: 20px;
+    }
+}
+
+.sidebar.shown .toggler svg {
+    transform: rotate(180deg);
+    fill: #fff;
+}
+
+.sidebar button:not(.toggler) {
+    height: 60px;
+    width: 60px;
+    background: transparent;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.sidebar button:not(.toggler) img {
+    height: 100%;
+    width: auto;
+    transform: scale(0.9);
+    filter: brightness(0) invert;
+}
+
+.sidebar button:not(.toggler):hover img {
+    transform: scale(1);
+}
+
+.sidebar button:not(.toggler):active img {
+    transform: scale(0.6);
+}
+
+/* SCROLLBAR */
+.sidebar::-webkit-scrollbar {
+    width: 5px;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+    background-color: rgb(199, 199, 199);
+}
+
+.sidebar::-webkit-scrollbar-thumb:hover {
+    background-color: rgb(220, 220, 220);
+}
+
+.sidebar::-webkit-scrollbar-thumb:active {
+    background-color: white;
+}
+
+a.logo {
+    animation: shrinkToCorner 2s linear;
+    width: 400px;
+    height: 400px;
+    background-color: #fff;
+    border-radius: 50%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    overflow: hidden;
+    transition: all 1s;
+    display: block;
+}
+
+@media (max-width: 460px) {
+    a.logo {
+        width: calc(100vw - 60px);
+        height: calc(100vw - 60px);
+    }
+
+    a.logo span {
+        font-size: 60px;
+    }
+
+    a.logo span small {
+        font-size: 24px;
+        line-height: 26px;
+    }
+
+    .navbar h1 span {
+        display: none;
+    }
+}
+
+a.logo span {
+    animation: opacityReveal 0.6s;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    display: block;
+    text-align: center;
+    font-weight: 600;
+    font-size: 90px;
+    line-height: 92px;
+    color: var(--cinza-600);
+    padding: 0 20px;
+    margin: 0;
+    letter-spacing: -4px;
+}
+
+a.logo span small {
+    line-height: 32px;
+    font-size: 30px;
+    display: block;
+    letter-spacing: -1px;
+}
+
+a.logo lottie-player {
+    position: absolute;
+    top: 0;
+    left: -20%;
+    width: 200%;
+}
+
+img.logo {
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+}
+
+/* CONTEUDO */
+
+main {
+    opacity: 0;
+    display: flex;
+    transition: all 2s;
+}
+
+.wrapper {
+    width: calc(100% - 60px);
+    height: calc(100vh - 80px);
+    margin-top: 80px;
+    transition: all 0.4s;
+    /* TEMP */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* TEMP */
+}
+
+.container {
+    background-color: var(--cinza-400);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 30px 25px 60px 25px;
+    border-radius: 50px;
+    box-shadow: 2px 2px 6px 4px rgba(0, 0, 0, 0.05);
+    margin: 0 20px;
+}
+
+.container h2 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.container .card {
+    padding: 10px 20px;
+    border-bottom: 1px solid var(--cinza-600);
+    text-decoration: none;
+    font-weight: 500;
+    color: var(--cinza-600);
+    width: 100%;
+    text-align: center;
+    cursor: pointer;
+}
+
+.container .card:hover {
+    text-decoration: underline;
+}

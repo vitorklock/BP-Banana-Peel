@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BnP - BananaPeel</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="./assets/images/favicon/favicon.png" type="image/x-icon">
+    <link rel="icon" type="image/png" href="./assets/images/favicon/favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="./assets/images/favicon/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="./assets/images/favicon/favicon/android-chrome-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="./assets/images/favicon/favicon/android-chrome-192x192.png" sizes="192x192">
+    <link rel="icon" type="image/png" href="./assets/images/favicon/favicon/android-chrome-512x512.png" sizes="512x512">
+    <link rel="apple-touch-icon" href="./assets/images/favicon/favicon.png">
+    </link>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="./assets/css/main.css">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <h1>BnP <span>&nbsp;- Banana Peel</span></h1>
+        </nav>
+    </header>
+    <a href="./" class="logo">
+        <span>
+            BnP
+            <br />
+            <small>Banana Peel</small>
+        </span>
+        <img src="./assets/images/icons/logo.svg" alt="GCI - Generic Company Interface" class="logo">
+        <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+        <lottie-player src="https://assets2.lottiefiles.com/packages/lf20_urtkfczm.json" background="transparent"
+            speed="1"></lottie-player>
+    </a>
+    <main>
+        <nav class="sidebar shown">
+            <button class="toggler" onclick="toggleSidebar()">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-caret-right" viewBox="0 0 16 16">
+                    <path
+                        d="M6 12.796V3.204L11.481 8 6 12.796zm.659.753 5.48-4.796a1 1 0 0 0 0-1.506L6.66 2.451C6.011 1.885 5 2.345 5 3.204v9.592a1 1 0 0 0 1.659.753z" />
+                </svg>
+            </button>
+            <button>
+                <img src="./assets/images/icons/placeholder1.svg" alt="">
+            </button>
+            <button>
+                <img src="./assets/images/icons/placeholder2.svg" alt="">
+            </button>
+            <button>
+                <img src="./assets/images/icons/placeholder3.svg" alt="">
+            </button>
+            <button>
+                <img src="./assets/images/icons/placeholder4.svg" alt="">
+            </button>
+            <button>
+                <img src="./assets/images/icons/placeholder5.svg" alt="">
+            </button>
+            <button>
+                <img src="./assets/images/icons/placeholder1.svg" alt="">
+            </button>
+            <button>
+                <img src="./assets/images/icons/placeholder2.svg" alt="">
+            </button>
+            <button>
+                <img src="./assets/images/icons/placeholder3.svg" alt="">
+            </button>
+            <button>
+                <img src="./assets/images/icons/placeholder4.svg" alt="">
+            </button>
+            <button>
+                <img src="./assets/images/icons/placeholder5.svg" alt="">
+            </button>
+        </nav>
+        <script>
+            var sidebarShown = true;
+            function toggleSidebar() {
+                $(window).resize(() => {
+                    $('.sidebar').css({ width: 0 })
+                        .removeClass('shown');
+                    $('.sidebar').css({ position: 'relative' });
+                    $('.wrapper').css('width', '100vw');
+                    sidebarShown = false;
+                })
+
+                if (sidebarShown) {
+                    $('.sidebar').css({ width: 0 })
+                        .removeClass('shown');
+                    (async () => {
+                        await sleep(400);
+                        $('.sidebar').css({ position: 'relative' });
+                    })()
+                    $('.wrapper').css('width', '100vw');
+                    sidebarShown = false;
+                } else {
+                    if ($(window).width() >= 576) {
+                        $('.sidebar').css('width', '60px').addClass('shown');
+                        $('.wrapper').css('width', 'calc(100vw - 60px)');
+                    } else {
+                        $('.sidebar').css({ width: '100vw', position: 'fixed' })
+                            .addClass('shown');
+                    }
+                    sidebarShown = true;
+                }
+            }
+        </script>
+        <div class="wrapper">
+
+            <div class="container">
+                <h2>Nossos <br /> desenvolvimentos</h2>
+                <a class="card"
+                    href="https://www.notion.so/d0f40dff255c46a88dff2acb6d537c02?v=350d70096fa7427ea06392908e6b57d8"
+                    target="_blank">
+                    NOTION - Banco de processos
+                </a>
+                <a href="https://prezi.com/p/feh54gbmihir/generic-company-interface-gci/" class="card">
+                    Apresentação no Prezi
+                </a>
+                <a class="card chatbot" onclick="showChatbot()">
+                    Chatbot
+                </a>
+                <!-- <a href="" class="card">
+                    dadsadasdsadasdas
+                </a>
+                <a href="" class="card">
+                    dadsadasdsadasdas
+                </a>
+                <a href="" class="card">
+                    dadsadasdsadasdas
+                </a>
+                <a href="" class="card">
+                    dadsadasdsadasdas
+                </a> -->
+            </div>
+        </div>
+    </main>
+    <script src="./assets/js/script.js"></script>
+</body>
+
+</html>
